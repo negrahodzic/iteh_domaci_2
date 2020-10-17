@@ -301,7 +301,8 @@
                                 url: 'http://localhost/rest/api/novosti/'+$("#id_novosti").val(),
                                 type: 'PUT',
                                 dataType: 'json',
-                                data: JSON.stringify(values)                 
+                                data: JSON.stringify(values),
+                                success: function(data){ alert("Odgovor od servera> "+data['poruka']); }                 
                         });
                     } else {
                         var values ={
@@ -314,7 +315,8 @@
                                 url: 'http://localhost/rest/api/kategorije/'+$("#id_kategorije").val(),
                                 type: 'PUT',
                                 dataType: 'json',
-                                data: JSON.stringify(values)                 
+                                data: JSON.stringify(values),
+                                success: function(data){ alert("Odgovor od servera> "+data['poruka']); }              
                         });
                     }
                     break;
@@ -323,12 +325,18 @@
                     if (tabela=="radio_novosti") {
                         $.ajax({
                                 url: 'http://localhost/rest/api/novosti/'+$("#brisanje").val(),
-                                type: 'DELETE'               
+                                type: 'DELETE',
+                                success:  function(data){ alert("Odgovor od servera> "+data['poruka']); }
+                                // console.log("Uspesno obrisana novost sa id = "+$("#brisanje").val())             
                         });
+                        
+                        
                     } else {
                         $.ajax({
                                 url: 'http://localhost/rest/api/kategorije/'+$("#brisanje").val(),
-                                type: 'DELETE'             
+                                type: 'DELETE',
+                                success: function(data){ alert("Odgovor od servera> "+data['poruka']); }
+                                // console.log("Uspesno obrisana kategorija sa id = "+$("#brisanje").val())                
                         });
                     }
                     break;
