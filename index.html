@@ -320,6 +320,17 @@
                     break;
                 case "delete":
                     //kod za bonus poene
+                    if (tabela=="radio_novosti") {
+                        $.ajax({
+                                url: 'http://localhost/rest/api/novosti/'+$("#brisanje").val(),
+                                type: 'DELETE'               
+                        });
+                    } else {
+                        $.ajax({
+                                url: 'http://localhost/rest/api/kategorije/'+$("#brisanje").val(),
+                                type: 'DELETE'             
+                        });
+                    }
                     break;
                 default:
                     console.log("default");
