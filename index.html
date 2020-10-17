@@ -304,7 +304,18 @@
                                 data: JSON.stringify(values)                 
                         });
                     } else {
-                        console.log("kategorijeeeee put");
+                        var values ={
+                            "kategorija": $("input[name=kategorija_naziv_put]").val(),
+                        }
+
+                        console.log(values);
+
+                        $.ajax({
+                                url: 'http://localhost/rest/api/kategorije/'+$("#id_kategorije").val(),
+                                type: 'PUT',
+                                dataType: 'json',
+                                data: JSON.stringify(values)                 
+                        });
                     }
                     break;
                 case "delete":
